@@ -14,6 +14,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "bc65e431-751d-453c-8731-589e401fbd56",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -77,7 +86,7 @@
                     "id": "cf49b1c6-2d24-4596-aebf-ff72c18b7e04",
                     "path": "2DVector",
                     "interactions": "",
-                    "processors": "Invert",
+                    "processors": "",
                     "groups": "",
                     "action": "Movement",
                     "isComposite": true,
@@ -86,7 +95,7 @@
                 {
                     "name": "Up",
                     "id": "0b5d18d1-103e-46cf-a920-c509094be582",
-                    "path": "<Joystick>/stick/up",
+                    "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -97,7 +106,7 @@
                 {
                     "name": "Down",
                     "id": "202ee6c0-a0f0-411d-af1e-f2c4a4fb8836",
-                    "path": "<Joystick>/stick/down",
+                    "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -108,7 +117,7 @@
                 {
                     "name": "Left",
                     "id": "6723cb8f-6b0d-4397-a035-8bd0d1dfb3c1",
-                    "path": "<Joystick>/stick/left",
+                    "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -119,13 +128,35 @@
                 {
                     "name": "Right",
                     "id": "b43f47db-92fd-469c-a571-4b64e2955f54",
-                    "path": "<Joystick>/stick/right",
+                    "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "e93e02a1-8c78-42e8-9a6b-24a7f01d2882",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2bef1207-1f3a-4aa9-b506-f5d3165e82ab",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

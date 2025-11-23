@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float movementSpeed;
     [SerializeField] private float rotationSpeed;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform bulletSpawn;
+    [SerializeField] private CameraShake cameraShake;
 
 
   
@@ -22,7 +25,7 @@ public class PlayerController : MonoBehaviour
       
 
     }
-    void Update()
+    void FixedUpdate()
     {
         movementDirection = playerInput.actions["Movement"].ReadValue<Vector2>();
         
@@ -33,11 +36,29 @@ public class PlayerController : MonoBehaviour
 
             Quaternion toRotation = Quaternion.LookRotation(new Vector3(movementDirection.x, 0, movementDirection.y), Vector3.up);
 
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+           transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
 
 
 
         }
+    }
+
+    public void Shoot(InputAction.CallbackContext context)
+    {
+
+        switch (context.phase)
+        {
+            case InputActionPhase.Performed: 
+                
+                GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+
+                cameraShake.ShakeCamera(0.3f, 0.02f);
+               
+
+            break;
+        }
+       
+        
     }
 
 
