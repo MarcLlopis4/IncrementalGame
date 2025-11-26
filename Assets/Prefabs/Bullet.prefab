@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 7080198667376282167}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,7 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b8ab848f7682f4fa8ca9cc2fbd84c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
-  bulletSpeed: 20
+  timeToDestroy: 10
+  bulletSpeed: 40
 --- !u!136 &2259755918233369104
 CapsuleCollider:
   m_ObjectHideFlags: 0

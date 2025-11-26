@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
                 
                 GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
 
-                cameraShake.ShakeCamera(0.3f, 0.02f);
+                cameraShake.ShakeCamera(0.15f, 0.02f);
                
 
             break;
