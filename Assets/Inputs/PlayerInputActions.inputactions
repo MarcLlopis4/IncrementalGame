@@ -84,7 +84,7 @@
                 {
                     "name": "Controller",
                     "id": "cf49b1c6-2d24-4596-aebf-ff72c18b7e04",
-                    "path": "2DVector(mode=1)",
+                    "path": "2DVector(mode=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

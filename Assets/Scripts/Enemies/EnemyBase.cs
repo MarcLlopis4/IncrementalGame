@@ -29,7 +29,7 @@ public class EnemyBase : MonoBehaviour
     {
         mat = GetComponent<MeshRenderer>().material;
         agent = GetComponent<NavMeshAgent>();
-        agent.SetDestination(player.transform.position);
+       
 
     }
 
@@ -42,7 +42,7 @@ public class EnemyBase : MonoBehaviour
         }
         else
         {
-
+            agent.SetDestination(player.transform.position);
         }
     }
 

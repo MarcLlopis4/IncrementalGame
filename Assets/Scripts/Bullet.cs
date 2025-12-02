@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] float timeToDestroy;
 
     [SerializeField] private float bulletSpeed;
+
+    bool canMove = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,7 +21,11 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Motion();
+        if(canMove)
+        {
+            Motion();
+        }
+       
     }
 
     private void Motion()
@@ -34,7 +40,11 @@ public class Bullet : MonoBehaviour
         {
             case "Enemy":
 
-                Destroy(this.gameObject);
+                canMove = false;
+                rb.useGravity = true;
+                rb.AddForce(Vector3.forward * 4);
+               
+                Destroy(this.gameObject,0.5f);
 
                 break;
         }
