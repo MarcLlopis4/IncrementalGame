@@ -1,5 +1,7 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,6 +20,10 @@ public class EnemyBase : MonoBehaviour
     private GameObject player;
     [SerializeField] private TextMeshProUGUI damageText;
 
+    [SerializeField] private AnimationCurve curve;
+    private RectTransform canvasRect;
+    [SerializeField] private float durationDamageText;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is createdç
 
 
@@ -29,7 +35,12 @@ public class EnemyBase : MonoBehaviour
     {
         mat = GetComponent<MeshRenderer>().material;
         agent = GetComponent<NavMeshAgent>();
-       
+
+        canvasRect = damageText.gameObject.transform.parent.GetComponent<RectTransform>();
+
+
+
+
 
     }
 
@@ -95,12 +106,45 @@ public class EnemyBase : MonoBehaviour
     {
         damageText.text = damage.ToString();
 
+        damageText.transform.GetComponent<RectTransform>().anchoredPosition = new Vector2(canvasRect.sizeDelta.x/2, 0);
+
         damageText.gameObject.SetActive(true);
 
         //MovementOfUI
+        float timeC = 0;
 
-        yield return new WaitForSeconds(2);
+        RectTransform initPos = damageText.transform.GetComponent<RectTransform>();
+        Vector2 posInitial = initPos.anchoredPosition;
+        float goToPosX = Random.Range(0, canvasRect.sizeDelta.x);
+        float goToPosY = Random.Range(0, canvasRect.sizeDelta.y/4);
 
+        damageText.color = new Color(damageText.color.r, damageText.color.g, damageText.color.b, 1);
+
+        while (timeC < durationDamageText)
+        {
+            float posX = Mathf.Lerp(posInitial.x, goToPosX, timeC / durationDamageText);
+            float posY = Mathf.Lerp(posInitial.y, goToPosY, timeC / durationDamageText);
+
+            initPos.anchoredPosition = new Vector2(posX, posY);
+
+            timeC += Time.deltaTime;
+
+            yield return null;
+        }
+
+        timeC = 0;
+        
+        float alpha = damageText.color.a;
+        while (timeC < durationDamageText)
+        {
+            damageText.color = new Color(damageText.color.r, damageText.color.g, damageText.color.b, Mathf.Lerp(alpha, 0, timeC / durationDamageText));
+            timeC += Time.deltaTime;
+            yield return null;
+               
+        }
+        
+       
+        
         damageText.gameObject.SetActive(false);
 
         yield return null;
