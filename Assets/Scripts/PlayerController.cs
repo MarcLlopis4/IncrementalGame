@@ -1,3 +1,6 @@
+using NUnit.Framework;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,10 +16,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform bulletSpawn;
     [SerializeField] private CameraShake cameraShake;
 
+    bool cansShoot;
+    bool endShootCoroutine = true;
 
-  
 
- 
+    [Header("Stats")]
+
+    [SerializeField] private float fireRate = 1;
+
+
+    [Header("ActiveObjects")]
+
+    public List<ObjectClass> equippedObjects;
+
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -49,17 +63,51 @@ public class PlayerController : MonoBehaviour
 
         switch (context.phase)
         {
-            case InputActionPhase.Performed: 
-                
-                GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+            case InputActionPhase.Performed:
 
-                cameraShake.ShakeCamera(0.15f, 0.02f);
+                if (endShootCoroutine)
+                {
+                    cansShoot = true;
+                    StartCoroutine(ShootCoroutine());
+                }
+               
+                
                
 
-            break;
+                     break;
+
+            case InputActionPhase.Canceled:
+
+                cansShoot = false;
+
+                    break;
         }
        
         
+    }
+
+
+    IEnumerator ShootCoroutine()
+    {
+        endShootCoroutine = false;
+        while (cansShoot)
+        {
+
+
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+
+            cameraShake.ShakeCamera(0.15f, 0.02f);
+
+          
+
+            yield return new WaitForSeconds(1/fireRate);
+
+        }
+
+        endShootCoroutine = true;
+
+
+       
     }
 
 
