@@ -517,7 +517,7 @@ GameObject:
   - component: {fileID: 466581451}
   - component: {fileID: 466581450}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: PostProcess
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -969,7 +969,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 64db1d6cdb874ad49a6b920045ff8aed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1218,35 +1218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357b3a2e16f513644ae87082c6fe472f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  objectPull:
-  - name: 
-    sprite: {fileID: 899915533, guid: 0e02689a05fbcd24fb7e661651b435db, type: 3}
-    damage: 0
-    fireRate: 0
-    bulletSize: 0
-    bulletNumber: 0
-    rebound: 0
-  - name: 
-    sprite: {fileID: 0}
-    damage: 0
-    fireRate: 0
-    bulletSize: 0
-    bulletNumber: 0
-    rebound: 0
-  - name: 
-    sprite: {fileID: 0}
-    damage: 0
-    fireRate: 0
-    bulletSize: 0
-    bulletNumber: 0
-    rebound: 0
-  - name: 
-    sprite: {fileID: 0}
-    damage: 0
-    fireRate: 0
-    bulletSize: 0
-    bulletNumber: 0
-    rebound: 0
+  objectPull: []
 --- !u!1 &1678790812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,63 +1766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae838dcd5b9d36247a1ca59f2786d8c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraShake
---- !u!1001 &6818840595934345341
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3401634156561154146, guid: 998203ccadc99c24e8b97385bb62ab4b, type: 3}
-      propertyPath: m_Name
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 8126250680570305925, guid: 998203ccadc99c24e8b97385bb62ab4b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8126250680570305925, guid: 998203ccadc99c24e8b97385bb62ab4b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.94
-      objectReference: {fileID: 0}
-    - target: {fileID: 8126250680570305925, guid: 998203ccadc99c24e8b97385bb62ab4b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 15.58
-      objectReference: {fileID: 0}
-    - target: {fileID: 8126250680570305925, guid: 998203ccadc99c24e8b97385bb62ab4b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8126250680570305925, guid: 998203ccadc99c24e8b97385bb62ab4b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8126250680570305925, guid: 998203ccadc99c24e8b97385bb62ab4b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8126250680570305925, guid: 998203ccadc99c24e8b97385bb62ab4b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8126250680570305925, guid: 998203ccadc99c24e8b97385bb62ab4b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8126250680570305925, guid: 998203ccadc99c24e8b97385bb62ab4b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8126250680570305925, guid: 998203ccadc99c24e8b97385bb62ab4b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 998203ccadc99c24e8b97385bb62ab4b, type: 3}
 --- !u!1001 &7670520791418715770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1879,9 +1794,21 @@ PrefabInstance:
       propertyPath: rotationSpeed
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 2363814144989763076, guid: 522b407da32163043af483d51428fec9, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2363814144989763076, guid: 522b407da32163043af483d51428fec9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 09f366b3ee387aa4b99d5cd0d1d66728, type: 3}
     - target: {fileID: 2403746386297790700, guid: 522b407da32163043af483d51428fec9, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403746386297790700, guid: 522b407da32163043af483d51428fec9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2403746386297790700, guid: 522b407da32163043af483d51428fec9, type: 3}
       propertyPath: m_TagString
@@ -1931,6 +1858,10 @@ PrefabInstance:
       propertyPath: m_LinearDamping
       value: 10.03
       objectReference: {fileID: 0}
+    - target: {fileID: 6285591268505009106, guid: 522b407da32163043af483d51428fec9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1946,7 +1877,6 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 7670520791418715770}
-  - {fileID: 6818840595934345341}
   - {fileID: 466581451}
   - {fileID: 1102229482}
   - {fileID: 999539957}

@@ -6,7 +6,7 @@ public class EnemiesManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     [SerializeField] private GameObject enemy;
-    bool startedWave = false;
+    bool startedWave = true;
     float waveTimer;
     void Start()
     {
